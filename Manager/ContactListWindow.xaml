@@ -1,0 +1,52 @@
+﻿<Window x:Class="Manager.ContactListWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Manager" Loaded="ContactListWin_Loaded"
+        mc:Ignorable="d" x:Name="ContactListWin"
+        Title="Список контактов" Height="250" Width="485">
+    <Grid Background="Gray">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <DataGrid AutoGenerateColumns="False" RowBackground="LightCyan" ColumnWidth="*" IsReadOnly="False"
+                  AlternatingRowBackground="LightGray" ColumnHeaderHeight="20" GridLinesVisibility="All" 
+                   HeadersVisibility="All" Grid.Row="3" VerticalAlignment="Center"
+                  x:Name="Table" ItemsSource="{Binding}">
+            <DataGrid.Columns>
+                <DataGridCheckBoxColumn Width="30" Binding="{Binding Path=check.IsChecked}"/>
+                <DataGridTextColumn Header="№" Width="30" Binding="{Binding Path=num.Text}" 
+                                    IsReadOnly="True" FontStyle="Italic"/>
+                <DataGridTextColumn Header="Фамилия Имя Отчество" Width="200" Binding="{Binding Path=name.Text}" 
+                                    FontStyle="Italic" x:Name="col3"/>
+                <DataGridTextColumn Header="Номер телефона" Width="200" Binding="{Binding Path=fone_number.Text}" 
+                                    FontStyle="Italic" x:Name="col4"/>                
+            </DataGrid.Columns>        
+        </DataGrid>
+        
+        <StackPanel Orientation="Horizontal" Grid.Row="0" VerticalAlignment="Top">
+            <Border Width="20" Height="20" Background="Blue" BorderBrush="Black"
+                    BorderThickness="2" HorizontalAlignment="Left" Margin="5" CornerRadius="3"
+                    MouseLeftButtonDown="Add_btn_MouseLeftButtonDown" MouseEnter="Add_btn_MouseEnter" MouseLeave="Add_btn_MouseLeave"                    x:Name="Add_btn">
+                <TextBlock Text="➕" VerticalAlignment="Center"/>
+            </Border>
+            
+            <Border Width="20" Height="20" Background="Red" BorderBrush="Black"
+                    BorderThickness="2" HorizontalAlignment="Left" Margin="5" CornerRadius="3" 
+                    x:Name="Del_btn" MouseLeftButtonDown="Del_btn_MouseLeftButtonDown" MouseEnter="Del_btn_MouseEnter" MouseLeave="Del_btn_MouseLeave">
+                <TextBlock Text="➖" VerticalAlignment="Center"/>
+            </Border>        
+        
+        <Border Width="20" Height="20" Background="Green" BorderBrush="Black"
+                BorderThickness="2" HorizontalAlignment="Left" Margin="5" CornerRadius="3"
+                x:Name="Done_btn" MouseLeftButtonDown="Done_btn_MouseLeftButtonDown" MouseEnter="Done_btn_MouseEnter" MouseLeave="Done_btn_MouseLeave">
+            <TextBlock Text="✔"/>
+        </Border>
+        </StackPanel>
+
+    </Grid>
+</Window>

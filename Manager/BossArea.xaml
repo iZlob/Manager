@@ -1,0 +1,67 @@
+﻿<Window x:Class="Manager.BossArea"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Manager"
+        mc:Ignorable="d" x:Name="staff"
+        Title="Список сотрудников" Height="700" Width="600">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            
+            <Border Grid.Column="0" BorderThickness="3" BorderBrush="Black"
+                CornerRadius="30" Margin="20" Padding="20">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <Grid Grid.Row="0" Grid.Column="0" x:Name="staffList">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                    </Grid>
+                </ScrollViewer>
+            </Border>
+            <Border Grid.Column="1" Margin="0 100 30 0" VerticalAlignment="Top">
+                <Border Background="Red" Height="50" Width="100" CornerRadius="10"
+                    MouseLeftButtonDown="Delete_MouseLeftButtonDown"  MouseEnter="Delete_MouseEnter"  
+                        MouseLeave="Delete_MouseLeave" x:Name="del_btn_border">
+                    <TextBlock Text="Удалить" HorizontalAlignment="Center" VerticalAlignment="Center"
+                           x:Name="del_btn"/>
+                </Border>
+            </Border>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Content="Поменять пароль" Width="150" 
+                Margin="50 0 20 10" Padding="10 5 10 5" HorizontalAlignment="Left"
+                x:Name="change_btn" Click="change_btn_Click"/>
+            
+            <Grid Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Border Grid.Column="0"  BorderBrush="Black" BorderThickness="1" 
+                Margin="0 0 0 10" Height="30" Visibility="Hidden" x:Name="pass_area">
+                    <TextBox x:Name="password_text" VerticalAlignment="Center" BorderThickness="0"
+                             Margin="1" FontSize="18"/>
+                </Border>
+                <Button Grid.Column="1" Content="OK" Margin="10 0 10 10" Padding="5"
+                    Click="OK_Click" x:Name="OK_btn" Visibility="Hidden"/>
+            </Grid>
+        </Grid>
+
+    </Grid>
+</Window>

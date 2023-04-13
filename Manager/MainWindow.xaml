@@ -1,0 +1,98 @@
+﻿<Window x:Class="Manager.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Manager"
+        mc:Ignorable="d" x:Name="MainTitle"
+        Title="Менеджер" Height="600" Width="600">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Label Grid.Row="0" x:Name="titleAutorization" HorizontalAlignment="Center" 
+                   FontSize="12" FontWeight="DemiBold" Content="Авторизация"/>
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Row="0" Grid.Column="0" Content="Логин: " HorizontalAlignment="Right"  
+                       VerticalAlignment="Center" FontWeight="SemiBold" Focusable="True"
+                       x:Name="Login"/>
+                <Label Grid.Row="1" Grid.Column="0" Content="Пароль: " HorizontalAlignment="Right" 
+                       VerticalAlignment="Center" FontWeight="SemiBold"
+                       x:Name="Password"/>
+                <Border Grid.Row="0" Grid.Column="1" CornerRadius="3" Height="30" Background="LightBlue"
+                        BorderBrush="Black" BorderThickness="2">
+                    <TextBox FontSize="12" VerticalAlignment="Center" Background="LightBlue"
+                             BorderThickness="0" MaxLength="48" x:Name="login_name"/>
+                </Border>
+                <Border Grid.Row="1" Grid.Column="1" CornerRadius="3" Height="30" Background="LightBlue"
+                        BorderBrush="Black" BorderThickness="2">
+                    <PasswordBox VerticalAlignment="Center" Background="LightBlue"
+                                 PasswordChar="#" BorderThickness="0" MaxLength="20" x:Name="password"/>
+                </Border>
+            </Grid>
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Button Grid.Column="0" Grid.Row="0" Margin="10" Content="Войти"
+                        x:Name="Enter" Click="ClickEnter"/>
+                <Button Grid.Column="2" Grid.Row="0" Margin="10" Content="Отмена"
+                        x:Name="Cancel" Click="ClickCancel"/>
+
+                <TextBlock Grid.Row="1" Text="Если вы еще не зарегистрированны " 
+                           Grid.ColumnSpan="2" FontSize="10" x:Name="infoReg"/>
+                <TextBlock Grid.Row="2" Grid.ColumnSpan="2">
+                    <Hyperlink Hyperlink.Click="HyperlinkClick" 
+                               Foreground="SteelBlue">
+                        <Run Text="Зарегистрируйтесь" x:Name="RegHyperLink"
+                             FontSize="16"/>
+                    </Hyperlink>
+                </TextBlock>
+            </Grid>
+
+        </Grid>
+        <Grid Grid.Column="2" Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Content="Eng" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Right" 
+                    Margin="3" x:Name="btnEng" Click="Click_btnEng"/>
+            <Button Grid.Column="1" Content="Rus" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Right" 
+                    Margin="3" x:Name="btnRus" Click="Click_btnRus"/>
+            <Button Grid.Column="2" Content="Esp" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Right" 
+                    Margin="3" x:Name="btnEsp" Click="Click_btnEsp"/>
+        </Grid>
+    </Grid>
+
+</Window>
